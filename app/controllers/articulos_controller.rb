@@ -4,14 +4,22 @@ class ArticulosController < ApplicationController
   end
   
   def create
-    #render plain: params[:articulo].inspect
     @articulo = Articulo.new(articulo_parametros)
-    @articulo.save
-    redirect_to articulos_show(@articulo)
+    if @articulo.save
+       flash[:notice] = "El articulo fue creado exitosamente"
+       redirect_to articulo_path(@articulo)
+    else
+      render 'new'
+    end
+  end
+  
+  def show
+      @articulo = Articulo.find(params[:id]) 
   end
   
   private
     def articulo_parametros
     params.require(:articulo).permit(:titulo, :descripcion)
     end
+    
 end

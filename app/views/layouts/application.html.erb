@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tarea</title>
+    <title>Alpha-blog</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% flash.each do |notice, msj| %>
+      <ul>
+        <li><%= msj %></li> 
+      </ul>
+    <% end %>
     <%= yield %>
   </body>
 </html>
