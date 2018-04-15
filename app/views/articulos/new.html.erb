@@ -1,0 +1,17 @@
+<h1>Crear un articulo</h1>
+
+<%= form_for @articulo do |f| %>
+  <p>
+    <%= f.label :titulo %><br/>
+    <%= f.text_field :titulo %>
+  </p>
+  <p>
+    <%= f.label :descripcion %> <br/>
+    <%= f.text_area :descripcion %>
+  </p>
+  <p>
+    <%= f.submit %>
+    
+  </p>
+  
+<% end %>
