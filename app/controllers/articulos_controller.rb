@@ -1,4 +1,6 @@
 class ArticulosController < ApplicationController
+  before_action :set_articulo, only: [:edit, :update, :show, :destroy]
+  
   def index
     @articulos = Articulo.all
   end
@@ -8,7 +10,6 @@ class ArticulosController < ApplicationController
   end
   
   def edit
-    @articulo = Articulo.find(params[:id])
   end
   
   def create
@@ -22,7 +23,6 @@ class ArticulosController < ApplicationController
   end
   
   def update
-    @articulo = Articulo.find(params[:id])
     if @articulo.update(articulo_parametros)
       flash[:notice] = "El articulo fue actualizado correctamente"
       redirect_to articulo_path(@articulo)
@@ -32,17 +32,18 @@ class ArticulosController < ApplicationController
   end
   
   def show
-      @articulo = Articulo.find(params[:id]) 
   end
   
   def destroy
-    @articulo = Articulo.find(params[:id])
     @articulo.destroy
     flash[:notice] = "El articulo fue eliminado"
     redirect_to articulos_path
   end
   
   private
+    def set_articulo
+      @articulo = Articulo.find(params[:id])
+    end
     def articulo_parametros
     params.require(:articulo).permit(:titulo, :descripcion)
     end
