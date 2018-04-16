@@ -35,6 +35,13 @@ class ArticulosController < ApplicationController
       @articulo = Articulo.find(params[:id]) 
   end
   
+  def destroy
+    @articulo = Articulo.find(params[:id])
+    @articulo.destroy
+    flash[:notice] = "El articulo fue eliminado"
+    redirect_to articulos_path
+  end
+  
   private
     def articulo_parametros
     params.require(:articulo).permit(:titulo, :descripcion)
