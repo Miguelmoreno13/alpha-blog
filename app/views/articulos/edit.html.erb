@@ -1,7 +1,7 @@
-<h1>Crear un articulo</h1>
+<h1>Editar articulo existente</h1>
 
 <% if @articulo.errors.any? %>
-  <h2>Los siguientes errores previnieron que el articulo fuera creado</h2>
+  <h2>Los siguientes errores previnieron que el articulo fuera editado</h2>
   <ul>
   <% @articulo.errors.full_messages.each do |msg| %>
   <li><%= msg %></li>
@@ -24,5 +24,4 @@
   </p>
   
 <% end %>
-
-<%= link_to "Volver a la lista de articulos", articulos_path %>
+ <%= link_to "Volver a la lista de articulos", articulos_path %>
