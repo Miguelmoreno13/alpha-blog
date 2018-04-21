@@ -1,0 +1,21 @@
+<% if objeto.errors.any? %>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h2 class="panel-title">
+            <%= pluralize(objeto.errors.count, "Error") %>
+            No se puede guardar este articulo porque:
+          </h2>
+          <div class="panel-body">
+            <ul>
+              <% objeto.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+<% end %>

@@ -1,12 +1,4 @@
-<% if @articulo.errors.any? %>
-  <h2>Los siguientes errores previnieron que el articulo fuera creado</h2>
-  <ul>
-  <% @articulo.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-  <% end %>
-  </ul>
-<% end %>
-
+<%= render 'compartido/errores', objeto: @articulo %>
 
 <div class='row'>
   <div class='col-xs-12'>
