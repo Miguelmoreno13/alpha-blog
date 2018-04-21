@@ -1,12 +1,14 @@
-<h1> Mostrando el articulo seleccionado</h1>
-<p>
-  Titulo: <%= @articulo.titulo %>
-</p>
-
-<p>
-  Descripcion: <%= @articulo.descripcion %>
-</p>
-
-<%= link_to "Editar este articulo", edit_articulo_path(@articulo) %> |
-
-<%= link_to "Volver a la lista de articulos", articulos_path %>
+<h2 align="center">Titulo: <%= @articulo.titulo %></h2>
+<div class="well col-xs-8 col-xs-offset-2">
+  <h4 class="center descripcion"><strong>Descripcion:</strong></h4>
+    <hr>
+      <%= simple_format(@articulo.descripcion) %>
+      <div class="articulo-action">
+        <%= link_to "Editar este articulo", edit_articulo_path(@articulo), class:"btn btn-xs btn-primary" %>
+        <%= link_to "Eliminar este articulo", articulos_path(@articulo), 
+            method: :delete, 
+              data: { confirm: "¿Esta seguro que quiere eliminar este articulo?"}, 
+            class: "btn btn-xs btn-danger" %> 
+        <%= link_to "Ver todos los articulos", articulos_path, class:"btn btn-xs btn-success" %>
+      </div>
+</div>
