@@ -1,20 +1,23 @@
-<h1>Lista de todos los articulos</h1>
-<p>
-<%= link_to "Crear nuevo articulo", new_articulo_path %>
-</p>
-<table>
-  <tr>
-    <th>Titulo</th>
-    <th>Descripcion</th>
-  </tr>
-  
-  <% @articulos.each do |articulo| %>
-  <tr>
-    <td><%= articulo.titulo %></td>
-    <td><%= articulo.descripcion %></td>
-    <td><%= link_to 'Editar', edit_articulo_path(articulo) %></td>
-    <td><%= link_to 'Mostrar', articulo_path(articulo) %></td>
-    <td><%= link_to 'Eliminar', articulo_path(articulo), method: :delete, data: {confirm: "Esta seguro?"} %></td>
-  </tr>
-  <% end %>
-</table>
+<h1 align="center">Lista de todos los articulos</h1>
+
+<% @articulos.each do |articulo| %>
+ <div class="row">
+   <div class="col-xs-8 col-xs-offset-2">
+     <div class="well well-lg">
+       <div class="articulo-titulo">
+         <%= link_to articulo.titulo, articulo_path(articulo) %>
+       </div>
+       <div class="articulo-cuerpo">
+         <%= truncate(articulo.descripcion, length: 100) %>
+       </div>
+        <div class="articulo-action">
+          <%= link_to "Editar este articulo", edit_articulo_path(articulo), class:"btn btn-xs btn-primary" %>
+          <%= link_to "Eliminar este articulo", articulo_path(articulo), 
+              method: :delete, 
+                data: { confirm: "¿Esta seguro que quiere eliminar este articulo?"}, 
+                class: "btn btn-xs btn-danger" %> 
+        </div>
+      </div>
+    </div>
+  </div>  
+<% end %>
