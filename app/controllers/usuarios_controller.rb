@@ -15,7 +15,6 @@ class UsuariosController < ApplicationController
   
   def edit
     @usuario = Usuario.find(params[:id])
-    
   end
   
   def update
@@ -26,6 +25,10 @@ class UsuariosController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def show
+    @usuario = Usuario.find(params[:id])
   end
   
   private
