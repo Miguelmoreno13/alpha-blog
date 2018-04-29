@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   
   resources :articulos
+  
+  get 'registro', to:'usuarios#new'
+  resource :usuarios, except: [:new]
 end

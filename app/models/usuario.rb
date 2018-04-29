@@ -1,7 +1,7 @@
 class Usuario < ApplicationRecord
   has_many :articulos
   before_save { self.email = email.downcase }
-  validates :nusuario, presence: true, 
+  validates :usuario, presence: true, 
             uniqueness: { case_sensitive: false },
             length: {minimum: 5, maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w\-.]+@[a-z\d\-.]+\.[a-z]+\z/i    
