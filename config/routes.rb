@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   
   resources :articulos
   
-  get 'registro', to:'usuarios#new'
-  resource :usuarios, except: [:new]
+  get 'registro', to: 'usuarios#new'
+  resources :usuarios, except: [:new]
 end
