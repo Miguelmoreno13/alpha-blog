@@ -2,7 +2,7 @@ class ArticulosController < ApplicationController
   before_action :set_articulo, only: [:edit, :update, :show, :destroy]
   
   def index
-    @articulos = Articulo.all
+    @articulos = Articulo.paginate(page: params[:page], per_page: 5)
   end
   
   def new

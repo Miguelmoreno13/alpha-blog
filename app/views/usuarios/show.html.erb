@@ -5,4 +5,10 @@
   </div>
 </div>
 <h4 align="center"> Articulos de <%= @usuario.usuario %></h4>
-<%= render 'articulos/articulo', objeto: @usuario.articulos %>
+<div class="center">
+  <%= will_paginate @usuario_articulos %>  
+</div>
+<%= render 'articulos/articulo', objeto: @usuario_articulos %>
+<div class="center">
+  <%= will_paginate @usuario_articulos %>  
+</div>
