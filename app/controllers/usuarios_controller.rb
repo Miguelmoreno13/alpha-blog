@@ -13,8 +13,8 @@ class UsuariosController < ApplicationController
   def create
     @usuario = Usuario.new(usuario_parametros)
     if @usuario.save
-      flash[:success] = "Bienvenido al Blog #{@usuario.usuario}"
-      redirect_to articulos_path
+      flash[:success] = "Bienvenido al Blog #{@usuario.usuario}, puedes iniciar sesión"
+      redirect_to login_path
     else 
       render 'new'
     end
@@ -46,7 +46,7 @@ class UsuariosController < ApplicationController
   end
   
   def require_same_user
-    if current_user != @user
+    if current_user != @usuario
       flash[:danger] = "Solo puedes editar tu cuenta"
       redirect_to root_path
     end
