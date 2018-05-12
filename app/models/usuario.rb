@@ -1,5 +1,5 @@
 class Usuario < ApplicationRecord
-  has_many :articulos
+  has_many :articulos, dependent: :destroy
   before_save { self.email = email.downcase }
   validates :usuario, presence: true, 
             uniqueness: { case_sensitive: false },
