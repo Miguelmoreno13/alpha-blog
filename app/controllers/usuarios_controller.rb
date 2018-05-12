@@ -1,4 +1,6 @@
 class UsuariosController < ApplicationController
+ before_action :set_usuario, only: [:edit, :update, :show]
+ before_action :require_same_user, only: [:edit, :update]
  
   def index
     @usuarios = Usuario.paginate(page: params[:page], per_page: 2)
@@ -19,11 +21,9 @@ class UsuariosController < ApplicationController
   end
   
   def edit
-    @usuario = Usuario.find(params[:id])
   end
   
   def update
-    @usuario = Usuario.find(params[:id])
     if @usuario.update(usuario_parametros)
       flash[:success] = "Tu cuenta fue actualizada correctamente"
       redirect_to articulos_path
@@ -33,12 +33,22 @@ class UsuariosController < ApplicationController
   end
   
   def show
-    @usuario = Usuario.find(params[:id])
     @usuario_articulos = @usuario.articulos.paginate(page: params[:page], per_page: 5)
   end
   
   private
   def usuario_parametros
     params.require(:usuario).permit(:usuario, :email, :password)
+  end
+  
+  def set_usuario
+  @usuario = Usuario.find(params[:id])
+  end
+  
+  def require_same_user
+    if current_user != @user
+      flash[:danger] = "Solo puedes editar tu cuenta"
+      redirect_to root_path
+    end
   end
 end

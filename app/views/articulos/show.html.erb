@@ -20,12 +20,16 @@
 <% end %>
   <h4 class="center descripcion"><strong>Descripcion:</strong></h4>
     <%= simple_format(@articulo.descripcion) %>
+    
       <div class="articulo-action">
-        <%= link_to "Editar este articulo", edit_articulo_path(@articulo), class:"btn btn-xs btn-primary" %>
-        <%= link_to "Eliminar este articulo", articulo_path(@articulo), 
-            method: :delete, 
-              data: { confirm: "¿Esta seguro que quiere eliminar este articulo?"}, 
-            class: "btn btn-xs btn-danger" %> 
-        <%= link_to "Ver todos los articulos", articulos_path, class:"btn btn-xs btn-success" %>
+        <% if logged_in? && current_user == @articulo.usuario %>
+          <%= link_to "Editar este articulo", edit_articulo_path(@articulo), class:"btn btn-xs btn-primary" %>
+          <%= link_to "Eliminar este articulo", articulo_path(@articulo), 
+              method: :delete, 
+                data: { confirm: "¿Esta seguro que quiere eliminar este articulo?"}, 
+              class: "btn btn-xs btn-danger" %> 
+        <% end %>
+          <%= link_to "Ver todos los articulos", articulos_path, class:"btn btn-xs btn-success" %>
+        
       </div>
 </div>
