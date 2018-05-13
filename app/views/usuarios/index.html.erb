@@ -12,7 +12,7 @@
           <li><small><%= pluralize(usuario.articulos.count, "articulo") if usuario.articulos %></small></li>
           <% if logged_in? and current_user.admin? %>
           <li><%= link_to "Eliminar este usuario", usuario_path(usuario), method: :delete,
-              data: { confirm: "¿Estas seguro que quieres eliminar este usuario y todos sus articulos?" } %></li>
+              data: { confirm: "¿Estas seguro que quieres eliminar este usuario y todos sus articulos?" } if  !usuario.admin?%></li>
           <% end %>
         </div>
       </div>
