@@ -5,7 +5,7 @@
     <%= form_for(@usuario, :html => {class: "form-horizontal", role: "form"}) do |f| %>
       <div class='form-group'>
         <div class='control-label col-sm-2'>
-        <%= f.label :usuario %>
+        <%= f.label :usuario %>:
         </div>
         <div class='col-sm-8'>
           <%= f.text_field :usuario, class: "form-control", placeholder: "Ingrese nombre de usuario", autofocus: true %>
@@ -13,7 +13,7 @@
       </div>
       <div class='form-group'>
         <div class='control-label col-sm-2'>
-          <%= f.label :email %>
+          <%= f.label :email %>:
         </div>
         <div class='col-sm-8'>
           <%= f.email_field :email, class: "form-control", placeholder: "Ingrese su email" %>
@@ -21,12 +21,30 @@
       </div>
       <div class='form-group'>
         <div class='control-label col-sm-2'>
-          <%= f.label :password %>
+          <%= f.label :password, 'Contraseña'%>:
         </div>
         <div class='col-sm-8'>
           <%= f.password_field :password, class: "form-control", placeholder: "Ingrese su contraseña" %>
         </div>
       </div>
+      <% if logged_in? %>
+      <div class='form-group'>
+        <div class='control-label col-sm-2'>
+          <%= f.label :password_confirmation, 'Nueva contraseña' %>:
+        </div>
+        <div class='col-sm-8'>
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Ingrese nueva contraseña" %>
+        </div>
+      </div>
+      <div class='form-group'>
+        <div class='control-label col-sm-2'>
+          <%= f.label :password_confirmation1, 'Repetir nueva contraseña' %>:
+        </div>
+        <div class='col-sm-8'>
+          <%= f.password_field :password_confirmation1, class: "form-control", placeholder: "Repetir su nueva contraseña" %>
+        </div>
+      </div>
+      <% end %>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <%= f.submit(@usuario.new_record? ? "Registrate" : "Actualizar tus datos", class: 'btn btn-primary btn-lg') %>

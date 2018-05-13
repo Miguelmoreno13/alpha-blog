@@ -4,7 +4,7 @@ class UsuariosController < ApplicationController
  before_action :require_admin, only: [:destroy]
  
   def index
-    @usuarios = Usuario.paginate(page: params[:page], per_page: 2)
+    @usuarios = Usuario.paginate(page: params[:page], per_page: 5)
   end
  
   def new
@@ -26,11 +26,29 @@ class UsuariosController < ApplicationController
   end
   
   def update
-    if @usuario.update(usuario_parametros)
-      flash[:success] = "Tu cuenta fue actualizada correctamente"
-      redirect_to articulos_path
+    blog_user = Usuario.find(params[:id])
+    pass_blog = params[:usuario][:password]
+    pass_blog1 = params[:usuario][:password_confirmation]
+    pass_blog2 = params[:usuario][:password_confirmation1]
+    if pass_blog.empty?
+      if @usuario.update(usuario_parametros)
+          flash[:success] = "Tu cuenta fue actualizada correctamente"
+          redirect_to edit_usuario_path(@usuario)
+      end
     else
-      render 'edit'
+      params[:usuario][:password] = pass_blog1
+      if pass_blog1 != pass_blog2
+      flash[:danger] = "La nueva contraseña no coinciden"
+      redirect_to edit_usuario_path(@usuario)
+        else if !blog_user.authenticate(pass_blog)
+        flash[:danger] = "La contraseña actual es incorrecta"
+        redirect_to edit_usuario_path(@usuario)
+          else if @usuario.update(usuario_parametros)
+          flash[:success] = "Tu cuenta fue actualizada correctamente"
+          redirect_to edit_usuario_path(@usuario)
+          end
+        end
+      end
     end
   end
   
