@@ -50,8 +50,8 @@
             </ul>
           </li>
         <% else %>
-          <li class="accuenta"><%= link_to 'Inicia sesión', login_path %></li>
-          <li class="accuenta"><%= link_to 'Registrate', registro_path %></li>
+          <li><%= link_to 'Inicia sesión', login_path, id: "arti" %></li>
+          <li><%= link_to 'Registrate', registro_path, id: "arti" %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
