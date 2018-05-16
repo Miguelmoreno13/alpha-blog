@@ -24,6 +24,7 @@ $navbar-default-bg: black;
 .jumbotron{
   background-image: asset-url('background.png');
   background-size: cover;
+  height: 500px;
 }
 
 .jumbotron h1{
@@ -46,6 +47,7 @@ $navbar-default-bg: black;
 
 .descripcion{
   margin-top: 0;
+  border-bottom: 1px solid #eaeaea;
 }
 
 #usua{
@@ -124,10 +126,4 @@ footer ul{
 footer ul li{
   float: left;
   margin-left: 15px;
-}
-
-.RowInicio
-{
-    margin-left: 100px;
-    margin-right: 100px;
 }

@@ -2,10 +2,10 @@
  <div class="row">
    <div class="col-xs-8 col-xs-offset-2">
      <div class="well well-lg">
-       <div class="articulo-titulo">
+       <div class="center articulo-titulo">
          <%= link_to articulo.titulo, articulo_path(articulo) %>
        </div>
-       <div class="articulo-cuerpo">
+       <div class="center articulo-cuerpo">
          <%= truncate(articulo.descripcion, length: 100) %>
          <div class="articulo-meta-details">
            <small>Creado por: <%= articulo.usuario.usuario if articulo.usuario %>, 
@@ -14,7 +14,7 @@
          </div>
        </div>
        <% if logged_in? && (current_user == articulo.usuario || current_user.admin?) %>  
-        <div class="articulo-action">
+        <div class="center articulo-action">
           <%= link_to "Editar este articulo", edit_articulo_path(articulo), class:"btn btn-xs btn-primary" %>
           <%= link_to "Eliminar este articulo", articulo_path(articulo), 
               method: :delete, 
