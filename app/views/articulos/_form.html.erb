@@ -21,7 +21,7 @@
       </div>
       <div class="center form-group">
         <div class="col-sm-offset-2 col-md-8">
-          <%= f.submit "Crear articulo",class: 'btn btn-primary btn-lg' %>
+          <%= f.submit(@articulo.new_record? ? "Crear articulo" : "Actualizar articulo",class: 'btn btn-primary btn-lg') %>
         </div>
       </div>
     <% end %>

@@ -38,7 +38,7 @@ class UsuariosController < ApplicationController
     else
       params[:usuario][:password] = pass_blog1
       if pass_blog1 != pass_blog2
-      flash[:danger] = "La nueva contraseña no coinciden"
+      flash[:danger] = "La nueva contraseña no coincide"
       redirect_to edit_usuario_path(@usuario)
         else if !blog_user.authenticate(pass_blog)
         flash[:danger] = "La contraseña actual es incorrecta"
