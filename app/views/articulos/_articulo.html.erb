@@ -13,6 +13,11 @@
                   Ultima actualización hace: <%= time_ago_in_words(articulo.updated_at) %></small>
          </div>
        </div>
+       <% if articulo.categorias.any? %>
+         <p>
+           Categorias: <%= render articulo.categorias %>
+         </p>
+       <% end %>
        <% if logged_in? && (current_user == articulo.usuario || current_user.admin?) %>  
         <div class="center articulo-action">
           <%= link_to "Editar este articulo", edit_articulo_path(articulo), class:"btn btn-xs btn-primary" %>

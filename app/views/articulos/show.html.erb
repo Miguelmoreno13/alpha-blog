@@ -11,7 +11,11 @@
         </li>
         <li>
           <small>
-            <%= pluralize(@articulo.usuario.articulos.count, "articulo") if @articulo.usuario.articulos %>
+            <% if(@articulo.usuario.articulos.count > 1 and @articulo.usuario.articulos) %>
+              <%= @articulo.usuario.articulos.count %> articulos
+                <% else %>
+                  <%= @articulo.usuario.articulos.count %> articulo
+            <% end %>
           </small>
         </li>
       </div>
@@ -19,8 +23,14 @@
   </ul>
 <% end %>
   <h4 class="center descripcion"><strong>Descripcion:</strong></h4>
-   <div align="center"><%= simple_format(@articulo.descripcion) %></div>
-    
+   <div align="center">
+     <%= simple_format(@articulo.descripcion) %>
+   </div>
+   <% if @articulo.categorias.any? %>
+     <p>
+       Categorias: <%= render @articulo.categorias %>
+     </p>
+   <% end %>
       <div class="center articulo-action">
         <% if logged_in? && (current_user == @articulo.usuario || current_user.admin?) %>
           <%= link_to "Editar este articulo", edit_articulo_path(@articulo), class:"btn btn-xs btn-primary" %>

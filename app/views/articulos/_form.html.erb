@@ -1,6 +1,6 @@
 <%= render 'compartido/errores', objeto: @articulo %>
 
-<div class='center row'>
+<div class='row'>
   <div class='col-xs-12'>
     <%= form_for(@articulo, :html => {class: "form-horizontal", role: "form"}) do |f| %>
       <div class='form-group'>
@@ -17,6 +17,15 @@
         </div>
         <div class='col-sm-8'>
           <%= f.text_area :descripcion, rows: 6, class: "form-control", placeholder: "Cuerpo del articulo" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-offset-2 col-md-8">
+            <%= f.collection_check_boxes :categoria_ids, Categoria.all, :id, :nombre do |cb| %>
+              <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text } %>
+            <% end %>
+          </div>    
         </div>
       </div>
       <div class="center form-group">
