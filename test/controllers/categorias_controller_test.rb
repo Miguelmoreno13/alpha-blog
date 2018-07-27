@@ -13,7 +13,7 @@ class CategoriasControllerTest < ActionDispatch::IntegrationTest
   end
   
   test "debe tener nuevo" do
-    sing_in_as(@user, "contra")
+    sign_in_as(@user, "contra")
     get new_categoria_path
     assert_response :success
   end

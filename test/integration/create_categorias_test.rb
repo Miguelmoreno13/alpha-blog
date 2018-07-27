@@ -2,7 +2,12 @@ require 'test_helper'
 
 class CreateCategoriasTest < ActionDispatch::IntegrationTest
   
+  def setup
+    @user = Usuario.create(usuario: "migue", email: "migue@ejemplo.com", password: "contra", admin: true)
+  end
+  
   test "conseguir nueva forma de categoria y crear categoria" do
+    sign_in_as(@user, "contra")
     get new_categoria_path
     assert_template 'categorias/new'
     assert_difference 'Categoria.count', 1 do 
@@ -14,6 +19,7 @@ class CreateCategoriasTest < ActionDispatch::IntegrationTest
   end
   
   test "categoria invalida con resultados en fallo" do
+    sign_in_as(@user, "contra")
     get new_categoria_path
     assert_template 'categorias/new'
     assert_no_difference 'Categoria.count' do 
