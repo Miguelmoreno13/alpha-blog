@@ -24,7 +24,7 @@
           <%= f.label :password, 'Contraseña'%>:
         </div>
         <div class='col-sm-8'>
-          <%= f.password_field :password, class: "form-control", placeholder: "Ingrese su contraseña actual" %>
+          <%= f.password_field :password, class: "form-control", placeholder: "Ingrese su contraseña" %>
         </div>
       </div>
       <% if logged_in? %>
@@ -41,7 +41,7 @@
           <%= f.label :password_confirmation1, 'Repetir nueva contraseña' %>:
         </div>
         <div class='col-sm-8'>
-          <%= f.password_field :password_confirmation1, class: "form-control", placeholder: "Repetir su nueva contraseña" %>
+          <%= f.password_field :password_confirmation1, class: "form-control", placeholder: "Repita su nueva contraseña" %>
         </div>
       </div>
       <% end %>

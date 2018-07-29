@@ -25,9 +25,14 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
-
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  
+  # Configure default URL for action mailer
+  config.action_mailer.default_url_options = {:host =>'https://eabcf9debea04750b136f5b0ac7a50b2.vfs.cloud9.us-east-2.amazonaws.com'}
+  config.action_mailer.delivery_method = :sendmail
+  
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'no-reply@alpha-blog.com'}
 
   config.action_mailer.perform_caching = false
 

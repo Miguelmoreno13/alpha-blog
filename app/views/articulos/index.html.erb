@@ -7,3 +7,8 @@
 <div align="center">
   <%= will_paginate %>
 </div>
+<% if @articulos.empty? %>
+  <div align="center">
+    <h1 class="empty">No hay articulos</h1>
+  </div>
+<% end %>

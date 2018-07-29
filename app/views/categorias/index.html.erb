@@ -1,4 +1,9 @@
 <h1 align="center"> Listado de las categorias </h1>
+<% if @categorias.empty? %>
+  <div align="center">
+    <h1 class="empty">No hay categorias</h1>
+  </div>
+<% end %>
   <div align="center">
     <%= will_paginate %>
       <% @categorias.each do |categoria| %>

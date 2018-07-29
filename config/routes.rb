@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   root 'pages#home'
   get 'about', to: 'pages#about'
@@ -14,5 +13,7 @@ Rails.application.routes.draw do
   delete 'logout', to:'sessions#destroy'
   
   resources :categorias
+  resources :password_resets
+  resources :sessions
   
 end

@@ -1,4 +1,9 @@
 <h1 align="center">Usuarios de Alpha Blog</h1>
+<% if @usuarios.empty? %>
+  <div align="center">
+    <h1 class="empty">No hay usuarios</h1>
+  </div>
+<% end %>
 <div align="center">
   <%= will_paginate %>
   <% @usuarios.each do |usuario| %>
