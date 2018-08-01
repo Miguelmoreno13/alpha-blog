@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Reset Password</h1>
+  <h1>Recuperacion de contraseña</h1>
 </div>
 <%= render 'compartido/errores', objeto: @usuario %>
     <%= form_for(@usuario, :url => password_reset_path(params[:id]), :html => {class: "form-horizontal", role: "form"}) do |f| %>
