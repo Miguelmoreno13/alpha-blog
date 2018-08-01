@@ -1,16 +1,16 @@
 class PasswordResetsController < ApplicationController
   def new
-    @user = Usuario.new
+    @usuario = Usuario.new
   end
   
   def create
-  @usuario = Usuario.find_by_email(params[:email])
+  @usuario = Usuario.find_by_email(params[:usuario][:email])
     if @usuario.nil?
       flash[:danger] = 'Email no existe!'
       redirect_to new_password_reset_path
     else
       @usuario.send_password_reset if @usuario
-      flash[:success] = 'Correo enviado con instrucciones de recuperaciond de contraseña'
+      flash[:success] = 'Correo enviado con instrucciones de recuperacion de contraseña'
       redirect_to new_password_reset_path
     end
   end
