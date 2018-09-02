@@ -34,11 +34,10 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
   address:              'smtp.zoho.com',
   port:                 465,
-  domain:               'zoho.com',
+  domain:               'alpha-blog-miguel.herokuapp.com',
   user_name:            'ayuda_soporte@zoho.com',
   password:             'Amores2011',
   authentication:       'plain',
-  tls:                    true,
   enable_starttls_auto: true }
   
   config.action_mailer.perform_deliveries = true
