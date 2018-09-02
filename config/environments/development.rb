@@ -27,7 +27,7 @@ Rails.application.configure do
   end
   
   # Configure default URL for action mailer
-  config.action_mailer.default_url_options = {:host =>'https://eabcf9debea04750b136f5b0ac7a50b2.vfs.cloud9.us-east-2.amazonaws.com'}
+  config.action_mailer.default_url_options = {:host =>'https://alpha-blog-miguel.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
   address:              'smtp.zoho.com',
