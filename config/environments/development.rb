@@ -28,7 +28,14 @@ Rails.application.configure do
   
   # Configure default URL for action mailer
   config.action_mailer.default_url_options = {:host =>'https://eabcf9debea04750b136f5b0ac7a50b2.vfs.cloud9.us-east-2.amazonaws.com'}
-  config.action_mailer.delivery_method = :sendmail
+ config.action_mailer.smtp_settings = {
+  address:              'smtp.zoho.com',
+  port:                 465,
+  domain:               'zoho.com',
+  user_name:            'ayuda_soporte@zoho.com',
+  password:             'Amores2011',
+  authentication:       'plain',
+  enable_starttls_auto: true }
   
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
