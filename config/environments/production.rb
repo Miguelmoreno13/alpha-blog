@@ -39,8 +39,6 @@ Rails.application.configure do
   user_name:            'ayuda_soporte@zoho.com',
   password:             'Amores2011',
   authentication:       'plain',
-  ssl: true,
-  tls: true,
   enable_starttls_auto: true }
   
   config.action_mailer.perform_deliveries = true
