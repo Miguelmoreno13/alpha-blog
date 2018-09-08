@@ -31,6 +31,10 @@ Rails.application.configure do
   config.assets.compile = false
   
   config.action_mailer.default_url_options = {:host =>'https://alpha-blog-miguel.herokuapp.com'}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = {from: 'no-reply@alpha-blog.com'}
+  config.action_mailer.perform_caching = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
   address:              'smtp.zoho.com',
@@ -42,11 +46,7 @@ Rails.application.configure do
   tls: true,
   ssl: true }
   
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'no-reply@alpha-blog.com'}
 
-  config.action_mailer.perform_caching = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
