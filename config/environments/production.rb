@@ -29,21 +29,6 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
-  
-  config.action_mailer.default_url_options = {:host =>'https://alpha-blog-miguel.herokuapp.com'}
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'example.com',
-    user_name:            'carl.was.here.before@gmail.com',
-    password:             'Dont3verBother$',
-    authentication:       'plain',
-    enable_starttls_auto: true
-  }
-  
-
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -74,7 +59,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "tarea_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "learn-rails_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -103,4 +88,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # email enabled in production
+  config.action_mailer.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: 587,
+    domain: Rails.application.secrets.domain_name,
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: Rails.application.secrets.email_provider_username,
+    password: Rails.application.secrets.email_provider_password
+  }
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => Rails.application.secrets.domain_name }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
 end
