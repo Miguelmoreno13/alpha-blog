@@ -10,6 +10,7 @@ class PasswordResetsController < ApplicationController
       redirect_to new_password_reset_path
     else
       @usuario.send_password_reset if @usuario
+      debugger
       flash[:success] = 'Correo enviado con instrucciones de recuperacion de contraseña'
       redirect_to new_password_reset_path
     end
