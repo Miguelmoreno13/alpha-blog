@@ -15,6 +15,6 @@
         <div class="col-sm-offset-2 col-md-8">
           <%= f.submit "Enviar correo" ,class: 'btn btn-primary btn-lg' %>
         </div>
-        <%= debug(params) if Rails.env.development? %>
+        <% debug :email %>
       </div>
       <% end %>
