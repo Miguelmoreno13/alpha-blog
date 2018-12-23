@@ -30,11 +30,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {:host =>'https://eabcf9debea04750b136f5b0ac7a50b2.vfs.cloud9.us-east-2.amazonaws.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'smtp.zoho.com',
+  address:              'smtp.gmail.com',
   port:                 465,
-  domain:               'alpha-blog-miguel.herokuapp.com',
-  user_name:            'ayuda_soporte@zoho.com',
-  password:             'Amores2011',
+  domain:               'gmail.com',
+  user_name:            'carl.was.here.before@gmail.com',
+  password:             'Dont3verBother$',
   authentication:       'plain',
   ssl: true,
   enable_starttls_auto: true }
