@@ -4,13 +4,13 @@ class PasswordResetsController < ApplicationController
   end
   
   def create
+  debugger
   @usuario = Usuario.find_by_email(params[:usuario][:email])
     if @usuario.nil?
       flash[:danger] = 'Email no existe!'
       redirect_to new_password_reset_path
     else
       @usuario.send_password_reset if @usuario
-      debugger
       flash[:success] = 'Correo enviado con instrucciones de recuperacion de contraseña'
       redirect_to new_password_reset_path
     end
