@@ -4,7 +4,6 @@ class PasswordResetsController < ApplicationController
   end
   
   def create
-  debugger
   @usuario = Usuario.find_by_email(params[:usuario][:email])
     if @usuario.nil?
       flash[:danger] = 'Email no existe!'
